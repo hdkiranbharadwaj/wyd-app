@@ -10,7 +10,7 @@ function Signup(params) {
     try {
       const body = Data;
 
-      const response = await fetch("http://localhost:5000/api/signup", {
+      const response = await fetch("http://192.168.29.49:5000/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -20,6 +20,8 @@ function Signup(params) {
         const data = await response.json();
         setCookie("userid", data.userid);
         setCookie("AuthToken", data.token);
+
+        setCookie("fullname", data.fullname);
         setError(null);
         window.location.reload();
       } else if (response.status == 400) {
@@ -42,7 +44,7 @@ function Signup(params) {
                 style={{ color: "hsl(218, 81%, 95%)" }}
               >
                 SIGN
-                <span style={{ color: "hsl(218, 81%, 75%)" }}>UP</span>
+                <span style={{ color: "#c14a26" }}>UP</span>
               </h1>
             </div>
             <div className=" col-lg-6 mb-5 mb-lg-0 position-relative ">

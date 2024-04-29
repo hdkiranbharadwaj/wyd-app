@@ -132,12 +132,12 @@ a {
 .background-radial-gradient {
   background-color: hsl(218, 41%, 15%);
   background-image: radial-gradient(
-      650px circle at 0% 0%,
+      /* 650px circle at 0% 0%,
       hsl(76, 46%, 44%) 15%,
       hsl(70, 58%, 66%) 35%,
       hsl(43, 56%, 49%) 75%,
-      hsl(57, 67%, 42%) 80%,
-      transparent 100%
+      hsl(57, 67%, 42%) 80%, */
+        transparent 100%
     ),
     radial-gradient(
       1250px circle at 100% 100%,
@@ -259,10 +259,10 @@ a {
 
   background-image: radial-gradient(
       650px circle at 0% 0%,
-      hsl(76, 46%, 44%) 15%,
-      hsl(70, 58%, 66%) 35%,
-      hsl(43, 56%, 49%) 75%,
-      hsl(57, 67%, 42%) 80%,
+      hsl(61, 58%, 56%) 15%,
+      hsl(66, 84%, 60%) 35%,
+      hsl(57, 74%, 46%) 75%,
+      hsl(50, 60%, 50%) 80%,
       transparent 100%
     ),
     radial-gradient(
@@ -292,7 +292,7 @@ a {
   width: 220px;
   top: -60px;
   left: -130px;
-  background: radial-gradient(#44006b, #ad1fff);
+  background: radial-gradient(#c18032, #b86217);
   overflow: hidden;
 }
 
@@ -302,7 +302,7 @@ a {
   right: -110px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(#44006b, #ad1fff);
+  background: radial-gradient(#c18032, #b86217);
   overflow: hidden;
 }
 
@@ -389,4 +389,101 @@ iframe {
 
 .unfii {
   color: rgb(112, 218, 245);
+}
+
+/* css from keeper */
+
+.body {
+  background: #eee;
+  padding: 0 16px;
+}
+
+header {
+  background-color: #f5ba13;
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: #ccc;
+}
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: #f5ba13;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+}
+
+.form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.form .input,
+.form .textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+.form .button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: #f5ba13;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
 }

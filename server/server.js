@@ -62,7 +62,7 @@ app.post("/api/signup", async (req, res) => {
           );
           const userid = result.rows[0].userid;
           const token = jwt.sign({ userid }, "secret", { expiresIn: "1hr" });
-          res.status(200).json({ userid, token });
+          res.status(200).json({ userid, token, fullname });
         }
       });
     }
@@ -83,6 +83,7 @@ app.post("/api/login", async (req, res) => {
       const user = result.rows[0];
       const storedPassword = user.hash;
       const userid = user.userid;
+      const fullname = user.fullname;
       bcrypt.compare(password, storedPassword, (err, result) => {
         if (err) {
           console.error(err);
@@ -90,7 +91,7 @@ app.post("/api/login", async (req, res) => {
         if (result) {
           const token = jwt.sign({ userid }, "secret", { expiresIn: "1hr" });
 
-          res.status(200).json({ userid, token });
+          res.status(200).json({ userid, token, fullname });
         } else {
           res.status(400).send("Incorrect Password");
         }

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 function Home(params) {
   return (
-    <body className="full-height">
+    <body className="full-height ">
       <section className="background-radial-gradient overflow-hidden my-7">
         <div className="container text-center my-7">
           <div style={{ zIndex: "10" }}>

@@ -8,7 +8,7 @@ function Login(params) {
     e.preventDefault();
     try {
       const body = Data;
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://192.168.29.49:5000/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -18,6 +18,8 @@ function Login(params) {
         const data = await response.json();
         setCookie("userid", data.userid);
         setCookie("AuthToken", data.token);
+
+        setCookie("fullname", data.fullname);
         //console.log(cookies);
         setError(null);
         window.location.reload();
@@ -43,7 +45,7 @@ function Login(params) {
                 style={{ color: "hsl(218, 81%, 95%)" }}
               >
                 LOG
-                <span style={{ color: "hsl(218, 81%, 75%)" }}>IN</span>
+                <span style={{ color: "#c14a26" }}>IN</span>
               </h1>
             </div>
             <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
