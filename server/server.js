@@ -42,7 +42,7 @@ app.post("/api/signup", async (req, res) => {
   const email = req.body.email;
   const fullname = req.body.fullname;
   const password = req.body.password;
-  console.log(req.body);
+
   try {
     const checkResult = await db.query("SELECT * FROM users WHERE email = $1", [
       email,
@@ -60,8 +60,9 @@ app.post("/api/signup", async (req, res) => {
             "INSERT INTO users (fullname,email,hash) VALUES ($1, $2, $3) RETURNING *",
             [fullname, email, hash]
           );
-          const token = jwt.sign({ email }, "secret", { expiresIn: "1hr" });
-          res.status(200).json({ email, token });
+          const userid = result.rows[0].userid;
+          const token = jwt.sign({ userid }, "secret", { expiresIn: "1hr" });
+          res.status(200).json({ userid, token });
         }
       });
     }
@@ -74,7 +75,6 @@ app.post("/api/signup", async (req, res) => {
 app.post("/api/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  console.log(req.body);
   try {
     const result = await db.query("SELECT * FROM users WHERE email = $1", [
       email,

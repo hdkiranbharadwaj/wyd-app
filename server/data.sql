@@ -30,7 +30,7 @@ CREATE TABLE notes(
     userid VARCHAR(10),
     status VARCHAR(500),
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(userid) REFERENCES users(userid)
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
 );
 
 

@@ -10,7 +10,7 @@ function Signup(params) {
     try {
       const body = Data;
 
-      const response = await fetch("http://localhost:5000/signup", {
+      const response = await fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -18,7 +18,7 @@ function Signup(params) {
 
       if (response.status == 200 && response.ok) {
         const data = await response.json();
-        setCookie("Email", data.email);
+        setCookie("userid", data.userid);
         setCookie("AuthToken", data.token);
         setError(null);
         window.location.reload();
@@ -58,83 +58,39 @@ function Signup(params) {
                 <div className="card-body px-4 py-5 px-md-5">
                   {/* Form Begin*/}
                   <form onSubmit={onSubmit}>
-                    <div className="row">
-                      <div className="col-md-6 mb-4">
-                        <div className="form-outline">
-                          <input
-                            type="text"
-                            id="form3Example1"
-                            className="form-control"
-                            value={Data.fname}
-                            onChange={(e) => {
-                              setData({
-                                ...Data,
-                                fname: e.target.value,
-                              });
-                            }}
-                          />
-                          <label className="form-label" htmlFor="form3Example1">
-                            First name
-                          </label>
-                        </div>
-                      </div>
-                      <div className="col-md-6 mb-4">
-                        <div className="form-outline">
-                          <input
-                            type="text"
-                            id="form3Example2"
-                            className="form-control"
-                            value={Data.lname}
-                            onChange={(e) => {
-                              setData({
-                                ...Data,
-                                lname: e.target.value,
-                              });
-                            }}
-                          />
-                          <label className="form-label" htmlFor="form3Example2">
-                            Last name
-                          </label>
-                        </div>
-                      </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        type="text"
+                        id="form3Example1"
+                        className="form-control"
+                        value={Data.fullname}
+                        onChange={(e) => {
+                          setData({
+                            ...Data,
+                            fullname: e.target.value,
+                          });
+                        }}
+                      />
+                      <label className="form-label" htmlFor="form3Example6">
+                        Full Name
+                      </label>
                     </div>
-                    <div className="row">
-                      <div className="col-md-7 form-outline mb-4">
-                        <input
-                          type="text"
-                          id="form3Example3"
-                          className="form-control"
-                          value={Data.email}
-                          onChange={(e) => {
-                            setData({
-                              ...Data,
-                              email: e.target.value,
-                            });
-                          }}
-                        />
-                        <label className="form-label" htmlFor="form3Example3">
-                          Email address
-                        </label>
-                      </div>
-                      <div className="col-md-5 mb-4">
-                        <div className="form-outline">
-                          <input
-                            type="number"
-                            id="form3Example4"
-                            className="form-control"
-                            value={Data.phno}
-                            onChange={(e) => {
-                              setData({
-                                ...Data,
-                                phno: e.target.value,
-                              });
-                            }}
-                          />
-                          <label className="form-label" htmlFor="form3Example4">
-                            Phone Number
-                          </label>
-                        </div>
-                      </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        type="text"
+                        id="form3Example3"
+                        className="form-control"
+                        value={Data.email}
+                        onChange={(e) => {
+                          setData({
+                            ...Data,
+                            email: e.target.value,
+                          });
+                        }}
+                      />
+                      <label className="form-label" htmlFor="form3Example6">
+                        Email
+                      </label>
                     </div>
                     <div className="form-outline mb-4">
                       <input

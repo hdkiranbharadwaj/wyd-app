@@ -133,18 +133,18 @@ a {
   background-color: hsl(218, 41%, 15%);
   background-image: radial-gradient(
       650px circle at 0% 0%,
-      hsl(218, 41%, 35%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
+      hsl(76, 46%, 44%) 15%,
+      hsl(70, 58%, 66%) 35%,
+      hsl(43, 56%, 49%) 75%,
+      hsl(57, 67%, 42%) 80%,
       transparent 100%
     ),
     radial-gradient(
       1250px circle at 100% 100%,
-      hsl(218, 41%, 45%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
+      hsl(61, 58%, 56%) 15%,
+      hsl(66, 62%, 46%) 35%,
+      hsl(57, 74%, 46%) 75%,
+      hsl(50, 60%, 50%) 80%,
       transparent 100%
     );
 
@@ -156,7 +156,7 @@ a {
   width: 220px;
   top: -60px;
   left: -130px;
-  background: radial-gradient(#44006b, #ad1fff);
+  background: radial-gradient(#79610a, #af872a);
   overflow: hidden;
 }
 
@@ -177,7 +177,7 @@ a {
 
 .button-signup {
   appearance: none;
-  background-color: #ffffff;
+  background-color: #c14a26;
   border-width: 0;
   color: #000000;
   cursor: pointer;
@@ -208,7 +208,7 @@ a {
 .button-signup:before {
   animation: opacityFallbackOut 0.5s step-end forwards;
   backface-visibility: hidden;
-  background-color: #5e196e;
+  background-color: #6e2019;
   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
   content: "";
   height: 100%;
@@ -255,21 +255,22 @@ a {
 }
 
 .background-radial-gradient {
-  background-color: hsl(218, 41%, 15%);
+  background-color: hsl(45, 86%, 54%);
+
   background-image: radial-gradient(
-      15% circle at 0% 0%,
-      hsl(218, 41%, 35%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
+      650px circle at 0% 0%,
+      hsl(76, 46%, 44%) 15%,
+      hsl(70, 58%, 66%) 35%,
+      hsl(43, 56%, 49%) 75%,
+      hsl(57, 67%, 42%) 80%,
       transparent 100%
     ),
     radial-gradient(
-      25% circle at 100% 100%,
-      hsl(218, 41%, 45%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
+      1250px circle at 100% 100%,
+      hsl(61, 58%, 56%) 15%,
+      hsl(66, 62%, 46%) 35%,
+      hsl(57, 74%, 46%) 75%,
+      hsl(50, 60%, 50%) 80%,
       transparent 100%
     );
   height: auto;

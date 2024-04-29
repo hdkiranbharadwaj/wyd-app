@@ -9,9 +9,8 @@ function Home(params) {
               className=" display-5 fw-bold"
               style={{ color: "hsl(218, 81%, 95%)", marginTop: "180px" }}
             >
-              Welcome <div className="mt-3">To</div>
-              <div className="mt-4" style={{ color: "hsl(218, 81%, 75%)" }}>
-                Dynamic-CV
+              <div className="mt-4" style={{ color: "#fc3d03" }}>
+                Whach you Doing !!
               </div>
             </h1>
             <h2
@@ -21,7 +20,10 @@ function Home(params) {
                 marginBottom: "50px",
               }}
             >
-              Get Ready to Experience the Wildest Résumé Managing Platfrom Ever
+              <i>
+                Currently engaged in the ancient art of procrastination. It's a
+                work in progress!
+              </i>
             </h2>
           </div>
           {/* add little space in the top to center the elements on the page */}
