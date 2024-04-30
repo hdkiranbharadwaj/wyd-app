@@ -10,7 +10,7 @@ function CreateArea() {
       try {
         const ui = cookies.get("userid");
         const body = { userid: ui, note: note };
-        const response = await fetch("http://192.168.29.49:5000/api/noteadd", {
+        const response = await fetch("/api/noteadd", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),

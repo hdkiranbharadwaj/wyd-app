@@ -15,7 +15,7 @@ function Main() {
 
   async function getNotes() {
     try {
-      const response = await fetch("http://192.168.29.49:5000/api/getnotes");
+      const response = await fetch("/api/getnotes");
       const jsonData = await response.json();
       setNotes(jsonData);
       console.log(jsonData);
