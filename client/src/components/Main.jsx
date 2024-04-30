@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Fragment, useState } from "react";
 import { useCookies } from "react-cookie";
 import Header from "./Header";
@@ -13,32 +13,38 @@ function Main() {
 
   const [notes, setNotes] = useState([]);
 
-  function addNote(newNote) {
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNote];
-    });
+  async function getNotes() {
+    try {
+      const response = await fetch("http://192.168.29.49:5000/api/getnotes");
+      const jsonData = await response.json();
+      setNotes(jsonData);
+      console.log(jsonData);
+    } catch (err) {
+      console.error(err);
+    }
   }
+  useEffect(() => {
+    getNotes(); // Call getNotes initially
 
-  function deleteNote(id) {
-    setNotes((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
-      });
-    });
-  }
+    const intervalId = setInterval(() => {
+      getNotes(); // Call getNotes every 5 minutes
+    }, 5 * 60 * 1000); // 5 minutes in milliseconds
 
+    return () => {
+      clearInterval(intervalId); // Clean up the interval on unmount
+    };
+  }, []);
   return (
     <div>
       <Header />
-      <CreateArea onAdd={addNote} />
-      {notes.map((noteItem, index) => {
+      <CreateArea />
+      {notes.map((noteItem) => {
         return (
           <Note
-            key={index}
-            id={index}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDelete={deleteNote}
+            key={noteItem.contentid}
+            id={noteItem.contentid}
+            fullname={noteItem.fullname}
+            content={noteItem.status}
           />
         );
       })}

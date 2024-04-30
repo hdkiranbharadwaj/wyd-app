@@ -1,48 +1,62 @@
 import React, { useState } from "react";
 import { Cookies } from "react-cookie";
-
-function CreateArea(props) {
-  const [note, setNote] = useState({
-    content: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    setNote((prevNote) => {
-      return {
-        ...prevNote,
-        [name]: value,
-      };
-    });
-  }
-
-  function submitNote(event) {
-    props.onAdd(note);
-    setNote({
-      content: "",
-    });
-    event.preventDefault();
-  } // Instantiate Cookies object
+function CreateArea() {
+  const [note, setNote] = useState("");
   const cookies = new Cookies();
+  async function submitNote(event) {
+    if (note == "") {
+      alert("Type something...");
+    } else {
+      try {
+        const ui = cookies.get("userid");
+        const body = { userid: ui, note: note };
+        const response = await fetch("http://192.168.29.49:5000/api/noteadd", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
 
-  // Access userid property from cookies
-  console.log(cookies.get("fullname"));
+        if (response.status == 200 && response.ok) {
+          setNote("");
+          window.location.reload();
+        } else {
+          alert(
+            "You have enlightened the world for today, Light it up tomorrow"
+          );
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    event.preventDefault();
+  }
 
   return (
     <div>
       <form class="form">
-        <div class="input">{cookies.get("fullname")}</div>
+        <div class="input text-capitalize">
+          <b>{"Hello " + cookies.get("fullname") + ","}</b>
+        </div>
         <textarea
           class="textarea"
-          name="content"
-          onChange={handleChange}
-          value={note.content}
-          placeholder="Take a note..."
+          onChange={(e) => {
+            setNote(e.target.value);
+          }}
+          value={note}
+          placeholder="Lets face your mind..."
           rows="3"
         />
-        <button class="button" onClick={submitNote}>
-          Add
+        <button class="button svgbutton" onClick={submitNote}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-brilliance"
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16M1 8a7 7 0 0 0 7 7 3.5 3.5 0 1 0 0-7 3.5 3.5 0 1 1 0-7 7 7 0 0 0-7 7" />
+          </svg>
         </button>
       </form>
     </div>

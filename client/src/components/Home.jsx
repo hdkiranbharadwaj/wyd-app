@@ -9,8 +9,9 @@ function Home(params) {
               className=" display-5 fw-bold"
               style={{ color: "hsl(218, 81%, 95%)", marginTop: "180px" }}
             >
-              <div className="mt-4" style={{ color: "#fc3d03" }}>
-                Whach you Doing !!
+              {/*#fc3d03*/}
+              <div className="mt-4" style={{ color: "#fc7303" }}>
+                WYD!!
               </div>
             </h1>
             <h2
@@ -49,6 +50,29 @@ function Home(params) {
             >
               <span>Log In</span>
             </button>
+          </div>
+          <br></br>
+          <br></br>
+          <div>
+            <h2
+              style={{
+                color: "maroon",
+                marginTop: "25px",
+                marginBottom: "25px",
+              }}
+            >
+              Create an impressionable ideology, we shall put it on our wall for
+              a day, so yeah let people really know
+            </h2>
+            <h2
+              style={{
+                color: "#fc7303",
+                marginTop: "25px",
+                marginBottom: "50px",
+              }}
+            >
+              Whach ya Doing
+            </h2>
           </div>
         </div>
       </section>

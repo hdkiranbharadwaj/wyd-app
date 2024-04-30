@@ -28,6 +28,7 @@ db.connect();
 // Get notes
 app.get("/api/getnotes", async (req, res) => {
   try {
+    console.log("CAlled");
     const allNotes = await db.query(
       "SELECT u.fullname, n.status FROM users u JOIN notes n ON u.userid = n.userid ORDER BY n.statusid ASC"
     );
@@ -109,7 +110,7 @@ app.post("/api/noteadd", async (req, res) => {
   try {
     console.log(req.body);
     const userid = req.body.userid;
-    const status = req.body.status;
+    const status = req.body.note;
     const response = await db.query("SELECT * FROM notes where userid = $1", [
       userid,
     ]);
@@ -122,7 +123,7 @@ app.post("/api/noteadd", async (req, res) => {
         "INSERT INTO notes (userid, status) VALUES ($1, $2)  RETURNING *",
         [userid, status]
       );
-      res.send("Done");
+      res.status(200).send("Done");
     }
   } catch (err) {
     console.error(err.message);
